@@ -1,0 +1,90 @@
+#
+# K2HDKC DBaaS Utilities - Override configuration for K2HDKC DBaaS
+#
+# Copyright 2021 Yahoo! Japan Corporation.
+#
+# K2HDKC DBaaS is a DataBase as a Service provided by Yahoo! JAPAN
+# which is built K2HR3 as a backend and provides services in
+# cooperation with OpenStack.
+# The Override configuration for K2HDKC DBaaS serves to connect the
+# components that make up the K2HDKC DBaaS. K2HDKC, K2HR3, CHMPX,
+# and K2HASH are components provided as AntPickax.
+#
+# For the full copyright and license information, please view
+# the license file that was distributed with this source code.
+#
+# AUTHOR:   Takeshi Nakatani
+# CREATE:   Fri Jan 22 2021
+# REVISION:
+#
+
+#
+# Local macros/define
+#
+%if %{undefined package_revision}
+%global package_revision 1
+%endif
+
+%if %{undefined make_build}
+%global make_build %{__make} %{?_smp_mflags}
+%endif
+
+%if %{undefined autosetup}
+%global autosetup %setup -q
+%endif
+
+%global gittag v@VERSION@
+
+%if %{undefined make_check}
+%global make_check 1
+%endif
+
+#
+# main package
+#
+Summary: @SHORTDESC@
+Name: @PACKAGE_NAME@
+Version: @VERSION@
+Release: %{package_revision}%{?dist}
+License: @PKGLICENSE@
+@RPMPKG_GROUP@
+URL: https://@GIT_DOMAIN@/@GIT_ORG@/@PACKAGE_NAME@
+Source0: https://@GIT_DOMAIN@/@GIT_ORG@/@PACKAGE_NAME@/archive/%{gittag}/%{name}-%{version}.tar.gz
+BuildRequires: git-core make
+BuildArch: noarch
+
+%description
+K2HDKC DBaaS Override Configuration is a setting for
+connecting each component running on the Virtual Machine
+that enjoys the functions of K2HDKC DBaaS.
+This Configuration allows CHMPX and K2HDKC components to
+work together and exchange data with K2HR3.
+Install the configuration file for linking the systemd
+services of CHMPX, K2HDKC, and K2HR3 GET RESOURCE.
+This allows these systemd services to act as the
+foundation for K2HDKC DBaaS.
+
+%prep
+%autosetup -n %{name}-%{version}
+
+%build
+./autogen.sh
+%configure --disable-static @CONFIGUREWITHOPT@
+%make_build
+
+%install
+%make_install
+install -D -m 644 src/override.conf %{buildroot}/etc/antpickax/override.conf
+
+%if %{make_check}
+%check
+%{__make} check
+%endif
+
+%files
+%license COPYING
+%doc README AUTHORS ChangeLog
+/etc/antpickax/*
+
+%changelog
+@RPMCHANGELOG@
