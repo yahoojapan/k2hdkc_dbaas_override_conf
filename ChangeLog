@@ -1,3 +1,9 @@
+k2hdkc-dbaas-override-conf (0.9.2) trusty; urgency=low
+
+  * Updated override.conf file - #3
+
+ -- Takeshi Nakatani <ggtakec@gmail.com>  Tue, 02 Feb 2021 20:31:38 +0900
+
 k2hdkc-dbaas-override-conf (0.9.1) trusty; urgency=low
 
   * Changed subprocess run user from current to k2hdkc - #1
