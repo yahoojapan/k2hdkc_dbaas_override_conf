@@ -1,9 +1,12 @@
 K2HDKC DBaaS Override Configuration(K2HDKC DBaaS Utilities)
 -----
+[![Systemd AntPickax CI](https://github.com/yahoojapan/k2hdkc_dbaas_override_conf/workflows/Nobuild%20AntPickax%20CI/badge.svg)](https://github.com/yahoojapan/k2hdkc_dbaas_override_conf/actions)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/yahoojapan/k2hdkc_dbaas_override_conf/blob/master/COPYING)
 [![GitHub forks](https://img.shields.io/github/forks/yahoojapan/k2hdkc_dbaas_override_conf.svg)](https://github.com/yahoojapan/k2hdkc_dbaas_override_conf/network)
 [![GitHub stars](https://img.shields.io/github/stars/yahoojapan/k2hdkc_dbaas_override_conf.svg)](https://github.com/yahoojapan/k2hdkc_dbaas_override_conf/stargazers)
 [![GitHub issues](https://img.shields.io/github/issues/yahoojapan/k2hdkc_dbaas_override_conf.svg)](https://github.com/yahoojapan/k2hdkc_dbaas_override_conf/issues)
+[![debian packages](https://img.shields.io/badge/deb-packagecloud.io-844fec.svg)](https://packagecloud.io/antpickax/stable)
+[![RPM packages](https://img.shields.io/badge/rpm-packagecloud.io-844fec.svg)](https://packagecloud.io/antpickax/stable)
 
 ## **K2HDKC** **DBaaS**
 ![K2HDKC DBaaS](https://dbaas.k2hdkc.antpick.ax/images/top_k2hdkc_dbaas.png)
