@@ -46,15 +46,19 @@ This Configuration allows CHMPX and K2HDKC components to work together and excha
 ## Repositories
 [k2hdkc](https://github.com/yahoojapan/k2hdkc)  
 [chmpx](https://github.com/yahoojapan/chmpx)  
+[k2hdkc_dbaas_override_conf](https://github.com/yahoojapan/k2hdkc_dbaas_override_conf)  
 [k2hr3](https://github.com/yahoojapan/k2hr3)  
 [k2hr3_app](https://github.com/yahoojapan/k2hr3_app)  
 [k2hr3_api](https://github.com/yahoojapan/k2hr3_api)  
+[k2hr3_get_resource](https://github.com/yahoojapan/k2hr3_get_resource)  
 
 ## Packages
 [k2hdkc(packagecloud.io)](https://packagecloud.io/app/antpickax/stable/search?q=k2hdkc)  
 [chmpx(packagecloud.io)](https://packagecloud.io/app/antpickax/stable/search?q=chmpx)  
+[k2hdkc-dbaas-override-conf(packagecloud.io)](https://packagecloud.io/app/antpickax/stable/search?q=k2hdkc-dbaas-override-conf)  
 [k2hr3-app(npm packages)](https://www.npmjs.com/package/k2hr3-app)  
 [k2hr3-api(npm packages)](https://www.npmjs.com/package/k2hr3-api)  
+[k2hr3-get-resource(packagecloud.io)](https://packagecloud.io/app/antpickax/stable/search?q=k2hr3-get-resource)  
 
 ### License
 This software is released under the MIT License, see the license file.
