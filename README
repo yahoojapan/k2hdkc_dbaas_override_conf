@@ -16,7 +16,7 @@ CHMPX, K2HDKC, and K2HR3 GET RESOURCE. This allows these systemd
 services to act as the foundation for K2HDKC DBaaS.
 
 ### Documents
-- Github Pages - https://k2hr3.antpick.ax/
+- Github Pages - https://k2hdkc.dbaas.antpick.ax/
 - Github Wiki - https://github.com/yahoojapan/k2hdkc_dbaas_override_conf/wiki
 - AntPickax - https://antpick.ax/
 
