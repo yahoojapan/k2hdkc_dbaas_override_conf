@@ -1,3 +1,9 @@
+k2hdkc-dbaas-override-conf (1.0.0) trusty; urgency=low
+
+  * Updated README and README.md for stable release - #7
+
+ -- Takeshi Nakatani <ggtakec@gmail.com>  Fri, 05 Feb 2021 15:53:29 +0900
+
 k2hdkc-dbaas-override-conf (0.9.3) trusty; urgency=low
 
   * Updated override.conf for k2hdkc.service and README.md - #5
