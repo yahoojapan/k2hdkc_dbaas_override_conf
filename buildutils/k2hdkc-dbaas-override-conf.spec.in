@@ -76,6 +76,9 @@ foundation for K2HDKC DBaaS.
 %make_install
 install -D -m 644 src/override.conf %{buildroot}/etc/antpickax/override.conf
 
+%post
+@POSTINST_SCRIPT_RPM@
+
 %if %{make_check}
 %check
 %{__make} check

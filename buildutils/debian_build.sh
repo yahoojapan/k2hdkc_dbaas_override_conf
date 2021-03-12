@@ -292,6 +292,14 @@ if [ ! -f ${EXPANDDIR}/debian/compat ]; then
 	echo "9" > ${EXPANDDIR}/debian/compat
 fi
 
+#
+# preinst/postinst/prerm/postrm
+#
+if [ -f ${MYSCRIPTDIR}/${PACKAGE_NAME}.postinst ]; then
+	cp -p ${MYSCRIPTDIR}/${PACKAGE_NAME}.postinst ${EXPANDDIR}/debian/${PACKAGE_NAME}.postinst || exit 1
+	chmod +x ${EXPANDDIR}/debian/${PACKAGE_NAME}.postinst || exit 1
+fi
+
 echo "===== prepare working directory: end ==============="
 
 #

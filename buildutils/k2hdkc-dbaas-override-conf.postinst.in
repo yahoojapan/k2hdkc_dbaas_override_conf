@@ -1,3 +1,4 @@
+#!/bin/sh
 #
 # K2HDKC DBaaS Utilities - Override configuration for K2HDKC DBaaS
 #
@@ -14,16 +15,13 @@
 # the license file that was distributed with this source code.
 #
 # AUTHOR:   Takeshi Nakatani
-# CREATE:   Fri Jan 22 2021
+# CREATE:   Fri May 12 2021
 # REVISION:
 #
 
-EXTRA_DIST =make_variables.sh \
-			make_release_version_file.sh \
-			make_rpm_changelog.sh \
-			make_postinst_script.sh \
-			debian_build.sh \
-			rpm_build.sh
+@POSTINST_SCRIPT_DEB@
+
+exit 0
 
 #
 # Local variables:
