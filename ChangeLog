@@ -1,3 +1,9 @@
+k2hdkc-dbaas-override-conf (1.0.1) trusty; urgency=low
+
+  * Added post install process for process execution user - #9
+
+ -- Takeshi Nakatani <ggtakec@gmail.com>  Fri, 12 Mar 2021 20:21:37 +0900
+
 k2hdkc-dbaas-override-conf (1.0.0) trusty; urgency=low
 
   * Updated README and README.md for stable release - #7
