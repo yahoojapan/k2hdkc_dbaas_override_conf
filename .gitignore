@@ -57,6 +57,7 @@ RELEASE_VERSION
 *.trs
 buildutils/control
 buildutils/copyright
+buildutils/*.postinst
 rpmbuild
 rpmbuild/*
 debian

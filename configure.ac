@@ -49,6 +49,8 @@ AC_SUBST([PKGLICENSE], "`grep License COPYING | sed 's/ License//g'`")
 AC_SUBST([DEBCOPYING], "`tail -n +5 COPYING | sed 's/^$/./g' | sed 's/^/ /g'`")
 AC_SUBST([DEBHELPER_DEP], "`$(pwd)/buildutils/make_variables.sh -debhelper_dep`")
 AC_SUBST([RPMPKG_GROUP], ["`$(pwd)/buildutils/make_variables.sh -rpmpkg_group | sed 's#NEEDRPMGROUP#Group: Applications/Other#g'`"])
+AC_SUBST([POSTINST_SCRIPT_RPM], ["`$(pwd)/buildutils/make_postinst_script.sh rpm`"])
+AC_SUBST([POSTINST_SCRIPT_DEB], ["`$(pwd)/buildutils/make_postinst_script.sh deb`"])
 AC_SUBST([CONFIGUREWITHOPT], "")
 AM_SUBST_NOTMAKE([CURRENTREV])
 AM_SUBST_NOTMAKE([RPMCHANGELOG])
@@ -56,6 +58,8 @@ AM_SUBST_NOTMAKE([SHORTDESC])
 AM_SUBST_NOTMAKE([DEBCOPYING])
 AM_SUBST_NOTMAKE([DEBHELPER_DEP])
 AM_SUBST_NOTMAKE([RPMPKG_GROUP])
+AM_SUBST_NOTMAKE([POSTINST_SCRIPT_RPM])
+AM_SUBST_NOTMAKE([POSTINST_SCRIPT_DEB])
 AM_SUBST_NOTMAKE([CONFIGUREWITHOPT])
 
 #
@@ -72,7 +76,8 @@ AC_CONFIG_FILES([Makefile
 				buildutils/Makefile
 				buildutils/control
 				buildutils/copyright
-				buildutils/k2hdkc-dbaas-override-conf.spec])
+				buildutils/k2hdkc-dbaas-override-conf.spec
+				buildutils/k2hdkc-dbaas-override-conf.postinst])
 
 AC_OUTPUT
 
