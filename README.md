@@ -13,16 +13,13 @@ K2HDKC DBaaS Override Configuration(K2HDKC DBaaS Utilities)
 
 ## Overview
 **K2HDKC DBaaS** (DataBase as a Service of K2HDKC) is a basic system that provides [K2HDKC(K2Hash based Distributed Kvs Cluster)](https://k2hdkc.antpick.ax/index.html) as a service.  
-K2HDKC DBaaS works with OpenStack or the Trove component of OpenStack to provide database functionality as a service.  
+**K2HDKC DBaaS** (Database as a Service for K2HDKC) is a **Database as a Service** that uses [K2HR3](https://k2hr3.antpick.ax/) and works with [OpenStack](https://www.openstack.org/) and [kubernetes](https://kubernetes.io/) to build a [K2HDKC(K2Hash based Distributed Kvs Cluster)](https://k2hdkc.antpick.ax/index.html) Cluster for distributed KVS.  
+Users can easily launch, scale, back up, and restore **K2HDKC** clusters as **K2HDKC DBaaS**.  
 
-Users can easily launch, scale, back up, and restore K2HDKC clusters using the Trove Dashboard(GUI) and the Trove-provided CLI(OpenStack CLI).  
-And you can also easily launch and scale your K2HDKC cluster without using Trove.  
-
-Detailed documentation for K2HDKC DBaaS can be found [here](https://dbaas.k2hdkc.antpick.ax/).
+Detailed documentation for K2HDKC DBaaS can be found [here](https://dbaas.k2hdkc.antpick.ax/).  
 
 ## K2HKDC DBaaS system
-K2HDKC DBaaS provides its functionality through Trove as a panel(feature) of OpenStack.  
-Similar functionality is also provided using the K2HR3 API CLI.  
+The type of **K2HDKC DBaaS** that works with [Trove(Trove is Database as a Service for OpenStack)](https://wiki.openstack.org/wiki/Trove) and the [K2HDKC DBaaS CLI](https://github.com/yahoojapan/k2hdkc_dbaas_cli) that supports [OpenStack](https://www.openstack.org/) provide functions as a panel(function) of [OpenStack](https://www.openstack.org/).  
 And the [K2HR3](https://k2hr3.antpick.ax/) system is used as the back end as an RBAC(Role Base Access Control) system dedicated to K2HDKC DBaaS.  
 Users typically do not need to use the K2HR3 system directly, and their functionality as DBaaS uses the Trove dashboard (or Trove CLI) or the CLI provided by the K2HR3 API.  
 
@@ -30,7 +27,7 @@ The overall system overview diagram is shown below.
 ![K2HDKC DBaaS system](https://dbaas.k2hdkc.antpick.ax/images/overview.png)  
 
 ## K2HDKC DBaaS Override Configuration
-**K2HDKC DBaaS Override Configuration** is a setting for connecting each component running on the Virtual Machine that enjoys the functions of K2HDKC DBaaS.  
+This **K2HDKC DBaaS Override Configuration** is a setting for connecting each component running on the Virtual Machine that enjoys the functions of K2HDKC DBaaS.  
 This Configuration allows CHMPX and K2HDKC components to work together and exchange data with K2HR3.  
 
 ## Documents
