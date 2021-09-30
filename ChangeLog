@@ -1,3 +1,9 @@
+k2hdkc-dbaas-override-conf (1.0.2) trusty; urgency=low
+
+  * Updated README.md for launch K2HDKC DBaaS K8S CLI - #11
+
+ -- Takeshi Nakatani <ggtakec@gmail.com>  Thu, 30 Sep 2021 13:24:31 +0900
+
 k2hdkc-dbaas-override-conf (1.0.1) trusty; urgency=low
 
   * Added post install process for process execution user - #9
