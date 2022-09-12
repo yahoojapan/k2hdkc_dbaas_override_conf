@@ -50,10 +50,10 @@ AC_CHECK_FILE([configure.custom],
 		configure_custom_file=""
 		custom_git_domain="github.com"
 		custom_git_org="yahoojapan"
-		custom_git_repo="k2hr3_get_resource"
+		custom_git_repo="k2hdkc_dbaas_override_conf"
 		custom_git_endpoint="https://api.github.com/repos/"
 		custom_dev_email="antpickax-support@mail.yahoo.co.jp"
-		custom_dev_name="K2HR3_DEVELOPER"
+		custom_dev_name="K2HASH_DEVELOPER"
 	]
 )
 
