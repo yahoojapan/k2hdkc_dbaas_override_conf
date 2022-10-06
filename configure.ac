@@ -29,6 +29,7 @@ AM_INIT_AUTOMAKE()
 # Checks for programs.
 #
 AC_PROG_AWK
+AC_PROG_CC
 AC_PROG_INSTALL
 AC_PROG_LN_S
 AC_PROG_MAKE_SET
@@ -64,7 +65,6 @@ AC_SUBST([CONFIGURECUSTOM], "${configure_custom_file}")
 AC_SUBST([GIT_DOMAIN], "${custom_git_domain}")
 AC_SUBST([GIT_ORG], "${custom_git_org}")
 AC_SUBST([GIT_REPO], "${custom_git_repo}")
-AC_SUBST([CURRENTREV], "$($(pwd)/buildutils/make_commit_hash.sh -o "${custom_git_org}" -r "${custom_git_repo}" -ep "${custom_git_endpoint}" -short)")
 AC_SUBST([DEV_EMAIL], "$(echo ${DEBEMAIL:-"${custom_dev_email}"})")
 AC_SUBST([DEV_NAME], "$(echo ${DEBFULLNAME:-"${custom_dev_name}"})")
 #
@@ -78,7 +78,6 @@ AC_SUBST([RPMPKG_GROUP], ["`$(pwd)/buildutils/make_variables.sh -rpmpkg_group | 
 AC_SUBST([POSTINST_SCRIPT_RPM], ["`$(pwd)/buildutils/make_postinst_script.sh rpm`"])
 AC_SUBST([POSTINST_SCRIPT_DEB], ["`$(pwd)/buildutils/make_postinst_script.sh deb`"])
 AC_SUBST([CONFIGUREWITHOPT], "")
-AM_SUBST_NOTMAKE([CURRENTREV])
 AM_SUBST_NOTMAKE([RPMCHANGELOG])
 AM_SUBST_NOTMAKE([SHORTDESC])
 AM_SUBST_NOTMAKE([DEBCOPYING])
