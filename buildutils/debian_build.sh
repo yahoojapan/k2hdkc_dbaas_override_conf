@@ -183,8 +183,8 @@ fi
 #
 ${SRCTOP}/autogen.sh				|| exit 1
 ${SRCTOP}/configure ${CONFIGUREOPT}	|| exit 1
-PACKAGE_VERSION=`${MYSCRIPTDIR}/make_variables.sh -pkg_version`
-PACKAGE_MAJOR_VER=`${MYSCRIPTDIR}/make_variables.sh -major_number`
+PACKAGE_VERSION=`${MYSCRIPTDIR}/make_variables.sh --pkg_version`
+PACKAGE_MAJOR_VER=`${MYSCRIPTDIR}/make_variables.sh --major_number`
 
 echo "===== make dist: start =============================="
 make dist || exit 1
