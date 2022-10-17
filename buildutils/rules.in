@@ -1,7 +1,8 @@
+#!/usr/bin/make -f
 #
 # K2HDKC DBaaS Utilities - Override configuration for K2HDKC DBaaS
 #
-# Copyright 2021 Yahoo! Japan Corporation.
+# Copyright 2022 Yahoo! Japan Corporation.
 #
 # K2HDKC DBaaS is a DataBase as a Service provided by Yahoo! JAPAN
 # which is built K2HR3 as a backend and provides services in
@@ -14,57 +15,30 @@
 # the license file that was distributed with this source code.
 #
 # AUTHOR:   Takeshi Nakatani
-# CREATE:   Fri Jan 22 2021
+# CREATE:   Mon, Oct 17 2022
 # REVISION:
 #
 
-#
-# autotools
-#
-aclocal.m4
-autom4te.cache
-autoscan.log
-config.guess
-config.log
-config.status
-configure
-install-sh
-missing
-test-driver
+#---------------------------------------------------------------
+# @PACKAGE_NAME@ / @PACKAGE_NAME@-dev packages
+#---------------------------------------------------------------
+%:
+	dh $@
+
+override_dh_auto_install:
+	dh_auto_install --destdir=debian/@PACKAGE_NAME@
 
 #
-# automakes
+# Placefolder for configure options
 #
-Makefile.in
-Makefile
-
+# [NOTE]
+# If an option is required for running configure, the placeholder will be rewritten as follows.
+# -------------------------------------------------
+# override_dh_auto_configure:
+#     dh_auto_configure -- <configure options>
+# -------------------------------------------------
 #
-# archive files and backups
-#
-*.tgz
-*.tar.gz
-*.rpm
-*.deb
-*.swp
-
-#
-# Other built objects
-#
-RELEASE_VERSION
-*.pc
-*.spec
-*.log
-*.trs
-buildutils/control
-buildutils/copyright
-buildutils/rules
-buildutils/*.postinst
-rpmbuild
-rpmbuild/*
-debian
-debian/*
-debian_build
-debian_build/*
+# [PLACEFOLDER CONFIGURE OPTION]
 
 #
 # Local variables:

@@ -23,7 +23,8 @@ EXTRA_DIST =make_variables.sh \
 			make_rpm_changelog.sh \
 			make_postinst_script.sh \
 			debian_build.sh \
-			rpm_build.sh
+			rpm_build.sh \
+			k2hdkc-dbaas-override-conf.install
 
 #
 # Local variables:
