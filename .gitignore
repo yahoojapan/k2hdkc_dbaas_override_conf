@@ -28,9 +28,11 @@ config.guess
 config.log
 config.status
 configure
+configure.scan
 install-sh
 missing
 test-driver
+compile
 
 #
 # automakes
