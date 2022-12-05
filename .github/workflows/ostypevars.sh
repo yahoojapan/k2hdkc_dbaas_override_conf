@@ -263,7 +263,6 @@ fi
 #	RUN_PUBLISH_PACKAGE		1
 #
 RUN_CPPCHECK=0
-RUN_SHELLCHECK=0
 RUN_BUILD=0
 
 #---------------------------------------------------------------
