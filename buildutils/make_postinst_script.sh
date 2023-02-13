@@ -25,9 +25,9 @@
 func_usage()
 {
 	echo ""
-	echo "Usage:  $1 [rpm|deb] [--help(-h)]"
-	echo "	[rpm|deb]    for rpm package or debian package"
-	echo "	--help(-h)   print help."
+	echo "Usage:  $1 [rpm|deb|apk] [--help(-h)]"
+	echo "	[rpm|deb|apk]  for rpm package or debian package"
+	echo "	--help(-h)     print help."
 	echo ""
 }
 
@@ -52,15 +52,21 @@ while [ $# -ne 0 ]; do
 
 	elif [ "$1" = "deb" ] || [ "$1" = "DEB" ] || [ "$1" = "debian" ] || [ "$1" = "DEBIAN" ]; then
 		if [ -n "${TARGET_TYPE}" ]; then
-			echo "[ERROR] rpm or deb option is already specified."
+			echo "[ERROR] rpm or deb or apk option is already specified."
 		fi
 		TARGET_TYPE="deb"
 
 	elif [ "$1" = "rpm" ] || [ "$1" = "RPM" ]; then
 		if [ -n "${TARGET_TYPE}" ]; then
-			echo "[ERROR] rpm or deb option is already specified."
+			echo "[ERROR] rpm or deb or apk option is already specified."
 		fi
 		TARGET_TYPE="rpm"
+
+	elif [ "$1" = "apk" ] || [ "$1" = "APK" ] || [ "$1" = "alpine" ] || [ "$1" = "ALPINE" ]; then
+		if [ -n "${TARGET_TYPE}" ]; then
+			echo "[ERROR] rpm or deb or apk option is already specified."
+		fi
+		TARGET_TYPE="apk"
 
 	else
 		echo "[ERROR] Unknown option($1) is specified."
@@ -112,6 +118,8 @@ EOS
 # Main
 #
 if [ -n "${TARGET_TYPE}" ] && [ "${TARGET_TYPE}" = "deb" ]; then
+	/bin/echo "${_SCRIPT_BODY}"
+elif [ -n "${TARGET_TYPE}" ] && [ "${TARGET_TYPE}" = "apk" ]; then
 	/bin/echo "${_SCRIPT_BODY}"
 else
 	/bin/echo "if [ \"\$1\" -eq 1 ]; then"

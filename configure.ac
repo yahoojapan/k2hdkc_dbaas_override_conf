@@ -78,6 +78,7 @@ AC_SUBST([DEBHELPER_DEP], "`$(pwd)/buildutils/make_variables.sh --debhelper_dep`
 AC_SUBST([RPMPKG_GROUP], ["`$(pwd)/buildutils/make_variables.sh --rpmpkg_group | sed 's#NEEDRPMGROUP#Group: Applications/Other#g'`"])
 AC_SUBST([POSTINST_SCRIPT_RPM], ["`$(pwd)/buildutils/make_postinst_script.sh rpm`"])
 AC_SUBST([POSTINST_SCRIPT_DEB], ["`$(pwd)/buildutils/make_postinst_script.sh deb`"])
+AC_SUBST([POSTINST_SCRIPT_APK], ["`$(pwd)/buildutils/make_postinst_script.sh apk`"])
 AC_SUBST([CONFIGUREWITHOPT], "")
 AM_SUBST_NOTMAKE([RPMCHANGELOG])
 AM_SUBST_NOTMAKE([SHORTDESC])
@@ -86,6 +87,7 @@ AM_SUBST_NOTMAKE([DEBHELPER_DEP])
 AM_SUBST_NOTMAKE([RPMPKG_GROUP])
 AM_SUBST_NOTMAKE([POSTINST_SCRIPT_RPM])
 AM_SUBST_NOTMAKE([POSTINST_SCRIPT_DEB])
+AM_SUBST_NOTMAKE([POSTINST_SCRIPT_APK])
 AM_SUBST_NOTMAKE([CONFIGUREWITHOPT])
 
 #
@@ -104,7 +106,9 @@ AC_CONFIG_FILES([Makefile
 				buildutils/copyright
 				buildutils/rules
 				buildutils/k2hdkc-dbaas-override-conf.spec
-				buildutils/k2hdkc-dbaas-override-conf.postinst])
+				buildutils/k2hdkc-dbaas-override-conf.postinst
+				buildutils/k2hdkc-dbaas-override-conf.post-install
+				buildutils/APKBUILD.templ])
 
 AC_OUTPUT
 
