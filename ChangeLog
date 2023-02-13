@@ -1,3 +1,20 @@
+k2hdkc-dbaas-override-conf (1.0.3) unstable; urgency=low
+
+  * Changed CI OSs and added Alpine OS - #24
+  * Updated header and footer in comment lines - #23
+  * Updated issue/pullrequest templates and README.md - #22
+  * Updated make_variables.sh - #21
+  * Added ShellCheck processing - #20
+  * Eliminated unnecessary copies in build_helper.sh - #19
+  * Updated github actions process and support os, and fixed bugs - #18
+  * Updated debian_build.sh for grep parameter and updated configure.ac - #17
+  * Updated common build scripts - #16
+  * Updated Antpickax common scripts and tools under the buildutils directory - #15
+  * Fixed a bug about variables in configure.ac - #14
+  * Enabled external customization of configure.ac and fixed for building - #13
+
+ -- Takeshi Nakatani <ggtakec@gmail.com>  Mon, 13 Feb 2023 22:57:34 +0900
+
 k2hdkc-dbaas-override-conf (1.0.2) unstable; urgency=low
 
   * Updated README.md for launch K2HDKC DBaaS K8S CLI - #11
