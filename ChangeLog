@@ -1,3 +1,9 @@
+k2hdkc-dbaas-override-conf (1.0.4) unstable; urgency=low
+
+  * Updated building/packaging logic for ALPINE - #26
+
+ -- Takeshi Nakatani <ggtakec@gmail.com>  Mon, 06 Mar 2023 13:25:30 +0900
+
 k2hdkc-dbaas-override-conf (1.0.3) unstable; urgency=low
 
   * Changed CI OSs and added Alpine OS - #24
