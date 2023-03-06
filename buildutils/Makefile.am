@@ -24,6 +24,7 @@ EXTRA_DIST =make_variables.sh \
 			make_postinst_script.sh \
 			debian_build.sh \
 			rpm_build.sh \
+			alpine_build.sh \
 			k2hdkc-dbaas-override-conf.install \
 			alpine_build_copy.conf
 

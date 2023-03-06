@@ -110,8 +110,10 @@ check() {
 
 package() {
 	install -Dm644 src/override.conf "$pkgdir"/etc/antpickax/override.conf
-}
 
+	install -m 0777 -d "$pkgdir"/var/lib/antpickax
+	install -m 0777 -d "$pkgdir"/var/run/antpickax
+}
 
 # [NOTE]
 # Subsequent lines print the checksum of the source archive.
