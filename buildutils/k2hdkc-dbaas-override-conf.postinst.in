@@ -21,6 +21,14 @@
 
 @POSTINST_SCRIPT_DEB@
 
+#
+# Create /var/{lib,run}/antpickax directory
+#
+mkdir -p /var/lib/antpickax
+chmod 0777 /var/lib/antpickax
+mkdir -p /var/run/antpickax
+chmod 0777 /var/run/antpickax
+
 exit 0
 
 #
