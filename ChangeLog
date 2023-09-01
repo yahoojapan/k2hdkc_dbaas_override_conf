@@ -1,3 +1,10 @@
+k2hdkc-dbaas-override-conf (1.0.5) unstable; urgency=low
+
+  * Updated tool scripts and support OSs - #29
+  * Fixed .gitignore to exclude APKBUILD.templ - #28
+
+ -- Takeshi Nakatani <ggtakec@gmail.com>  Fri, 01 Sep 2023 10:35:25 +0900
+
 k2hdkc-dbaas-override-conf (1.0.4) unstable; urgency=low
 
   * Updated building/packaging logic for ALPINE - #26
