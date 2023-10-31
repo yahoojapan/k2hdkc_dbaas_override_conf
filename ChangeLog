@@ -1,3 +1,9 @@
+k2hdkc-dbaas-override-conf (1.0.6) unstable; urgency=low
+
+  * Changed support OS (fedora and ubuntu) and updated tool - #31
+
+ -- Takeshi Nakatani <ggtakec@gmail.com>  Tue, 31 Oct 2023 09:12:36 +0900
+
 k2hdkc-dbaas-override-conf (1.0.5) unstable; urgency=low
 
   * Updated tool scripts and support OSs - #29
