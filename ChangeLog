@@ -1,3 +1,9 @@
+k2hdkc-dbaas-override-conf (1.0.8) unstable; urgency=low
+
+  * Changed support OS, etc - #35
+
+ -- Takeshi Nakatani <ggtakec@gmail.com>  Tue, 12 Mar 2024 17:45:06 +0900
+
 k2hdkc-dbaas-override-conf (1.0.7) unstable; urgency=low
 
   * Updated build_helper.sh for fixing a bug and installing ruby - #33
