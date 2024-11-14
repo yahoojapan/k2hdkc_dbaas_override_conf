@@ -55,6 +55,7 @@ arch="x86_64"
 license="MIT"
 
 depends="
+	procps
 "
 depends_dev=""
 makedepends="
@@ -62,7 +63,6 @@ makedepends="
 	autoconf
 	automake
 	musl-locales
-	procps
 "
 
 install="
