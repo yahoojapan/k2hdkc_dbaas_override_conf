@@ -46,23 +46,23 @@ while [ $# -ne 0 ]; do
 	if [ -z "$1" ]; then
 		break;
 
-	elif [ "$1" = "-h" ] || [ "$1" = "-H" ] || [ "$1" = "--help" ] || [ "$1" = "--HELP" ]; then
+	elif echo "$1" | grep -q -i -e "^-h$" -e "^--help$"; then
 		func_usage "${PRGNAME}"
 		exit 0
 
-	elif [ "$1" = "deb" ] || [ "$1" = "DEB" ] || [ "$1" = "debian" ] || [ "$1" = "DEBIAN" ]; then
+	elif echo "$1" | grep -q -i -e "^deb$" -e "^debian$" -e "^ubuntu$"; then
 		if [ -n "${TARGET_TYPE}" ]; then
 			echo "[ERROR] rpm or deb or apk option is already specified."
 		fi
 		TARGET_TYPE="deb"
 
-	elif [ "$1" = "rpm" ] || [ "$1" = "RPM" ]; then
+	elif echo "$1" | grep -q -i -e "^rpm$" -e "^fedora$" -e "^rocky$" -e "^rockylinux$"; then
 		if [ -n "${TARGET_TYPE}" ]; then
 			echo "[ERROR] rpm or deb or apk option is already specified."
 		fi
 		TARGET_TYPE="rpm"
 
-	elif [ "$1" = "apk" ] || [ "$1" = "APK" ] || [ "$1" = "alpine" ] || [ "$1" = "ALPINE" ]; then
+	elif echo "$1" | grep -q -i -e "^apk$" -e "^alpine$"; then
 		if [ -n "${TARGET_TYPE}" ]; then
 			echo "[ERROR] rpm or deb or apk option is already specified."
 		fi
@@ -89,8 +89,8 @@ if [ -d /etc/antpickax ] && [ -f /etc/antpickax/k2hr3-api-uri ] && [ -f /etc/ant
 	K2HR3_CUK=\$(cat /etc/antpickax/k2hr3-cuk-param)
 	K2HDKC_PROC_USER="k2hdkc"
 	K2HR3_RESULT=\$(curl -s -X GET -H 'Content-Type: application/json' "\${K2HR3_URI}"/v1/resource/"\${K2HR3_RESOURCE}"?"\${K2HR3_CUK}"\&role="\${K2HR3_ROLE}"\&type=keys\&keyname=k2hdkc-dbaas-proc-user)
-	if ! echo "\${K2HR3_RESULT}" | grep -q '"result":true'; then
-		K2HDKC_PROC_USER=\$(echo "\${K2HR3_RESULT}" | sed 's/^.*\"resource\":\"\([^\"]*\)*\".*\$/\1/g' | grep -v "[^a-zA-Z0-9_]")
+	if ! echo "\${K2HR3_RESULT}" | grep -q -i '"result":true'; then
+		K2HDKC_PROC_USER=\$(echo "\${K2HR3_RESULT}" | sed 's/^.*\"resource\":\"\([^\"]*\)*\".*\$/\1/gi' | grep -v "[^a-zA-Z0-9_]")
 		if [ -n "\${K2HDKC_PROC_USER}" ]; then
 			sed -i -e "s/chmpx-service-helper.conf:SUBPROCESS_USER[[:space:]]*=.*\$/chmpx-service-helper.conf:SUBPROCESS_USER\t\t= \${K2HDKC_PROC_USER}/g" -e "s/k2hdkc-service-helper.conf:SUBPROCESS_USER[[:space:]]*=.*\$/k2hdkc-service-helper.conf:SUBPROCESS_USER\t\t= \${K2HDKC_PROC_USER}/g" /etc/antpickax/override.conf
 		else
@@ -98,11 +98,11 @@ if [ -d /etc/antpickax ] && [ -f /etc/antpickax/k2hr3-api-uri ] && [ -f /etc/ant
 		fi
 	fi
 	K2HR3_RESULT=\$(curl -s -X GET -H 'Content-Type: application/json' "\${K2HR3_URI}"/v1/resource/"\${K2HR3_RESOURCE}"?"\${K2HR3_CUK}"\&role="\${K2HR3_ROLE}"\&type=keys\&keyname=k2hdkc-dbaas-add-user)
-	if ! echo "\${K2HR3_RESULT}" | grep -q '"result":true'; then
-		K2HDKC_ADD_USER=\$(echo "\${K2HR3_RESULT}" | sed 's/^.*\"resource\":\(.*\)}.*\$/\1/g')
+	if ! echo "\${K2HR3_RESULT}" | grep -q -i '"result":true'; then
+		K2HDKC_ADD_USER=\$(echo "\${K2HR3_RESULT}" | sed 's/^.*\"resource\":\(.*\)}.*\$/\1/gi')
 		if [ -n "\${K2HDKC_ADD_USER}" ] && [ "\${K2HDKC_ADD_USER}" = "1" ]; then
 			if ! id -u "\${K2HDKC_PROC_USER}" >/dev/null 2>&1; then
-				if ! grep -q "^\${K2HDKC_PROC_USER}:" /etc/group; then
+				if ! grep -q -i "^\${K2HDKC_PROC_USER}:" /etc/group; then
 					useradd -s /bin/sh -d /home/"\${K2HDKC_PROC_USER}" -m "\${K2HDKC_PROC_USER}"
 				else
 					useradd -s /bin/sh -d /home/"\${K2HDKC_PROC_USER}" -m "\${K2HDKC_PROC_USER}" -g "\${K2HDKC_PROC_USER}"
