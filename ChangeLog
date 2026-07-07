@@ -1,3 +1,9 @@
+k2hdkc-dbaas-override-conf (1.0.13) unstable; urgency=low
+
+  * Supports Alpine 3.24, manual trigger for GHA - #45
+
+ -- Takeshi Nakatani <ggtakec@gmail.com>  Tue, 07 Jul 2026 15:07:13 +0900
+
 k2hdkc-dbaas-override-conf (1.0.12) unstable; urgency=low
 
   * Changed support OS and Fixed some code - #43
