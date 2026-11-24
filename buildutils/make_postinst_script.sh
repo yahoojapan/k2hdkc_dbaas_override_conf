@@ -82,13 +82,16 @@ fi
 # Script body
 #
 _SCRIPT_BODY=$(cat<<EOS
-if [ -d /etc/antpickax ] && [ -f /etc/antpickax/k2hr3-api-uri ] && [ -f /etc/antpickax/k2hr3-role-name ] && [ -f /etc/antpickax/k2hr3-role-name ] && [ -f /etc/antpickax/k2hr3-cuk-param ]; then
+if [ -d /etc/antpickax ] && [ ! -L /etc/antpickax ] && [ -f /etc/antpickax/k2hr3-api-uri ] && [ ! -L /etc/antpickax/k2hr3-api-uri ] && [ -f /etc/antpickax/k2hr3-role-name ] && [ ! -L /etc/antpickax/k2hr3-role-name ] && [ -f /etc/antpickax/k2hr3-cuk-param ] && [ ! -L /etc/antpickax/k2hr3-cuk-param ]; then
+	GET_RESULT_CONNECT_TIMEOUT=60
+	GET_RESULT_MAX_TIME=600
+	GET_RESULT_MAX_BYTES=\$((1 * 1024 * 1024))
 	K2HR3_URI=\$(cat /etc/antpickax/k2hr3-api-uri)
 	K2HR3_ROLE=\$(cat /etc/antpickax/k2hr3-role-name)
 	K2HR3_RESOURCE=\$(sed -e 's/:role:/:resource:/g' /etc/antpickax/k2hr3-role-name)
 	K2HR3_CUK=\$(cat /etc/antpickax/k2hr3-cuk-param)
 	K2HDKC_PROC_USER="k2hdkc"
-	K2HR3_RESULT=\$(curl -s -X GET -H 'Content-Type: application/json' "\${K2HR3_URI}"/v1/resource/"\${K2HR3_RESOURCE}"?"\${K2HR3_CUK}"\&role="\${K2HR3_ROLE}"\&type=keys\&keyname=k2hdkc-dbaas-proc-user)
+	K2HR3_RESULT=\$(curl -s --fail --connect-timeout "\${GET_RESULT_CONNECT_TIMEOUT}" --max-time "\${GET_RESULT_MAX_TIME}" --max-filesize "\${GET_RESULT_MAX_BYTES}" -X GET -H 'Content-Type: application/json' "\${K2HR3_URI}"/v1/resource/"\${K2HR3_RESOURCE}"?"\${K2HR3_CUK}"\&role="\${K2HR3_ROLE}"\&type=keys\&keyname=k2hdkc-dbaas-proc-user)
 	if ! echo "\${K2HR3_RESULT}" | grep -q -i '"result":true'; then
 		K2HDKC_PROC_USER=\$(echo "\${K2HR3_RESULT}" | sed 's/^.*\"resource\":\"\([^\"]*\)*\".*\$/\1/gi' | grep -v "[^a-zA-Z0-9_]")
 		if [ -n "\${K2HDKC_PROC_USER}" ]; then
@@ -97,7 +100,7 @@ if [ -d /etc/antpickax ] && [ -f /etc/antpickax/k2hr3-api-uri ] && [ -f /etc/ant
 			K2HDKC_PROC_USER="k2hdkc"
 		fi
 	fi
-	K2HR3_RESULT=\$(curl -s -X GET -H 'Content-Type: application/json' "\${K2HR3_URI}"/v1/resource/"\${K2HR3_RESOURCE}"?"\${K2HR3_CUK}"\&role="\${K2HR3_ROLE}"\&type=keys\&keyname=k2hdkc-dbaas-add-user)
+	K2HR3_RESULT=\$(curl -s --fail --connect-timeout "\${GET_RESULT_CONNECT_TIMEOUT}" --max-time "\${GET_RESULT_MAX_TIME}" --max-filesize "\${GET_RESULT_MAX_BYTES}" -X GET -H 'Content-Type: application/json' "\${K2HR3_URI}"/v1/resource/"\${K2HR3_RESOURCE}"?"\${K2HR3_CUK}"\&role="\${K2HR3_ROLE}"\&type=keys\&keyname=k2hdkc-dbaas-add-user)
 	if ! echo "\${K2HR3_RESULT}" | grep -q -i '"result":true'; then
 		K2HDKC_ADD_USER=\$(echo "\${K2HR3_RESULT}" | sed 's/^.*\"resource\":\(.*\)}.*\$/\1/gi')
 		if [ -n "\${K2HDKC_ADD_USER}" ] && [ "\${K2HDKC_ADD_USER}" = "1" ]; then
